@@ -1,0 +1,14 @@
+{% extends "app_AE2/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div style="display:flex; justify-content:center; align-items:center;">
+    <h1>Se cerró la sesión de forma correcta!</h1>
+    <div>
+        <small>
+            Quieres volver a ingresar? <a href="{% url 'usuarios:login' %}">Log in</a>
+            Necesitas una cuenta? <a href="{% url 'usuarios:registro' %}">Registrate</a>
+        </small>
+    </div>
+</div>
+{% endblock %}

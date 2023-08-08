@@ -1,0 +1,32 @@
+{% extends "app_AE2/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block title %}Registro usuarios{% endblock %}
+{%block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'app_AE3/css/styles.css' %}">
+{% endblock %}
+
+{% block content %} 
+<div class="d-flex justify-content-center align-items-center">
+    <img height="150px" src="{% static 'usuarios/img/descargar.png' %}" alt="..">
+</div>
+<div style="display:flex; justify-content:center; align-items:center;">
+    <form method="POST">
+        <div class="form-group">
+            {% csrf_token %}
+            {{formulario|crispy}}
+        </div>
+        <button type="submit" class="btn btn-success">Registrarse</button>
+    </form>
+    <div>
+        {% comment %}
+        <small>
+            Ya tienes una cuenta? <a href="{% url 'login' %}">Log in</a>
+        </small>
+        {% endcomment %}
+    </div>
+
+</div>
+{% endblock %}

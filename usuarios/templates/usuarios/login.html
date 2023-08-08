@@ -1,0 +1,21 @@
+{% extends "app_AE2/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Log in usuarios{% endblock %}
+
+{% block content %}
+<div style="display:flex; justify-content:center; align-items:center;">
+    <form method="POST"> {% comment %}<form method="POST" action="{% url 'usuarios:bienvenida' %}"></form> {% endcomment %}
+        <div class="form-group">
+            {% csrf_token %}
+            {{form | crispy}}
+        </div>
+        <button type="submit" class="btn btn-success">Log in</button>
+    </form>
+    <div>
+        <small>
+            Necesitas una cuenta? <a href="{% url 'usuarios:registro' %}">Registrate</a>
+        </small>
+    </div>
+</div>
+{% endblock %}
